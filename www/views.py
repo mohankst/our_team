@@ -1,8 +1,11 @@
+from django.http import Http404
 from django.shortcuts import render, redirect
+from django.conf import settings
 from .models import Person
 from .forms import PersonForm
 from django.forms.models import model_to_dict
 from django.core.urlresolvers import reverse
+from django.db.models import Q
 
 # Create your views here.
 def index(request):
@@ -15,7 +18,15 @@ def detail(request, slug):
 
 
 def edit(request, slug):
+	if not request.user.is_authenticated:
+		return redirect
+	usermail = None
+	if request.user.is_authenticated():
+		usermail = request.user.email
+
 	person = Person.objects.get(slug=slug)
+	#if not usermail == person.email():
+		#raise Http404("You are not authorised to edit this")
 	if (request.method == 'POST'):
 		#prosess the form
 		form = PersonForm(request.POST, request.FILES, instance=person)

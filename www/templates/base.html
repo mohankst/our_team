@@ -1,11 +1,19 @@
 {% load staticfiles %}
 
-<!DOCTYPE html>
-  <html>
-    <head>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1">
       <title>Directory</title>
-      <link rel="stylesheet" href="{% static 'normalize.css' %}"></link>
-      <link rel="stylesheet" href="{% static 'main.css' %}"></link>
+        <link href='{% static "/css/bootstrap.css" %}'  rel="stylesheet" type="text/css">
+        <link href='{% static "/css/style.css" %}' rel="stylesheet" type="text/css">
+        <link href='{% static "/css/font-awesome.css" %}' rel="stylesheet" type="text/css">
+        <link href='{% static "/css/animate.css" %}' rel="stylesheet" type="text/css">
+
+        <script type="text/javascript" src='{% static "/js/jquery.1.8.3.min.js" %}'></script>
+        <script type="text/javascript" src='{% static "/js/bootstrap.js" %}'></script>
+        <script type="text/javascript" src='{% static "/js/wow.js" %}'></script>
     </head>
     <body>
     {% block content %}
