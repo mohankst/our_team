@@ -1,0 +1,21 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title> Amra login </title>
+      <link rel="stylesheet" href="{% static 'form.css' %}">
+    </head>
+    <body>
+    <div class="login-page">
+      <div class="form">        
+        <form class="login-form" method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
+          {{ form }}
+          <button>লগ ইন</button>
+          <p class="message">নিবন্ধিত নন? <a href="{% url 'register' %}">এখুনি করে ফেলুন :D </a></p>
+        </form>
+      </div>
+    </div>
+  <!--<script src="{% static 'form.js' %}"></script> -->
+  </body>
+</html>

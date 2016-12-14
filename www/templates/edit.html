@@ -1,0 +1,20 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title> হালনাগাদ </title>
+      <link rel="stylesheet" href="{% static 'form.css' %}">
+    </head>
+    <body>
+    <div class="login-page">
+      <div class="form">
+          <form action="." method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" value="submit"> SUB </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

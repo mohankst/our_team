@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <main>
+        <h1>Directory</h1>
+        {% for person in people %}
+          <section>
+            <a href="{% url 'detail' person.slug %}"><img src="{{ person.image.url }}"/></a>
+            <a href="{% url 'detail' person.slug %}"><h2>{{ person.name }}</h2></a>
+            <p class="person-title">{{ person.title }}</p>
+            <p class="person-title">{{ person.extentaion }}</p>
+            <p class="person-email">
+              <a href="mailto:{{ person.email }}" target="_top">{{ person.email }}</a>
+            </p>
+          </section>
+        {% endfor %}
+      </main>
+{% endblock %}
