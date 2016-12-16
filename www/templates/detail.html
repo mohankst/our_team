@@ -1,32 +1,148 @@
-{% load staticfiles %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-  <html>
-    <head>
-      <title>আমরা</title>
-      <link rel="stylesheet" href="{% static 'normalize.css' %}"></link>
-      <link rel="stylesheet" href="{% static 'main.css' %}"></link>
-    </head>
-    <body>
-      <main>
-        <h1>Directory</h1>
+{% block content %}
 
-          <section>
-            {% if user.email == person.email %}
-            <a href="{% url 'edit' person.slug %}">edit</a>
-            {% endif %}
-            <img src="{{ person.image.url }}"/>
-            <h2>{{ person.name }}</h2>
-            <p class="person-title">{{ person.title }}</p>
-            <p class="person-title">{{ person.extentaion }}</p>
-            <p class="person-email">{{ person.email }}</p>
-            <p>{{ person.responsibilities }}</p>
-            <p>{{ person.bio }}</p>
-            <p>{{ person.facebook }}</p>
-            <p>{{ person.linkedin }}</p>
-            <p>{{ person.birthday }}</p>
-          </section>
+<div class="container">
+<div class="row info" style="text-align:center;">
+</div>
 
-      </main>
-    </body>
-  </html>
+<div class="resume">
+    <header class="page-header">
+    <h1 class="page-title">{{ person.name }}</h1>
+    <small> <i class="fa fa-clock-o"></i> Last Updated on: <time>Sunday, October 05, 2014</time></small>
+  </header>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+    <div class="panel panel-default">
+      <div class="panel-heading resume-heading">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="col-xs-12 col-sm-4">
+              <figure>
+                <img class="img-circle img-responsive" alt="{{ person.name }}" src="{{ person.image.url }}">
+              </figure>
+              
+              <div class="row">
+                <div class="col-xs-12 social-btns">
+                  
+                    <div class="col-xs-3 col-md-1 col-lg-1 social-btn-holder">
+                      <a href="{{ person.facebook }}" class="btn btn-social btn-block btn-google">
+                        <i class="fa fa-google"></i> </a>
+                    </div>
+                  
+                    <div class="col-xs-3 col-md-1 col-lg-1 social-btn-holder">
+                      <a href="{{ person.facebook }}" class="btn btn-social btn-block btn-facebook">
+                        <i class="fa fa-facebook"></i> </a>
+                    </div>
+                  
+                    <div class="col-xs-3 col-md-1 col-lg-1 social-btn-holder">
+                      <a href="{{ person.linkedin }}" class="btn btn-social btn-block btn-twitter">
+                        <i class="fa fa-twitter"></i> </a>
+                    </div>
+                  
+                    <div class="col-xs-3 col-md-1 col-lg-1 social-btn-holder">
+                      <a href="{{ person.linkedin }}" class="btn btn-social btn-block btn-linkedin">
+                        <i class="fa fa-linkedin"></i> </a>
+                    </div>
+                  
+                    <div class="col-xs-3 col-md-1 col-lg-1 social-btn-holder">
+                      <a href="#" class="btn btn-social btn-block btn-github">
+                        <i class="fa fa-github"></i> </a>
+                    </div>
+                  
+                    <div class="col-xs-3 col-md-1 col-lg-1 social-btn-holder">
+                      <a href="#" class="btn btn-social btn-block btn-stackoverflow">
+                        <i class="fa fa-stack-overflow"></i> </a>
+                    </div>
+                  
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="col-xs-12 col-sm-8">
+              <ul class="list-group">
+                <li class="list-group-item">{{ person.title }}</li>
+                <li class="list-group-item"><i class="fa fa-phone"></i> {{ person.extentaion }}</li>
+                <li class="list-group-item"><i class="fa fa-envelope"></i> {{ person.emails }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bs-callout bs-callout-danger">
+        <h4>Responsib....</h4>
+        <p>
+         {{ person.responsibilities }}
+        </p>
+        <h4>Bio....</h4>
+        <p>
+        {{ person.bio }}
+        </p>
+      </div>
+      <div class="bs-callout bs-callout-danger">
+        <h4>Research Interests</h4>
+        <p>
+          Software Engineering, Machine Learning, Image Processing,
+          Computer Vision, Artificial Neural Networks, Data Science,
+          Evolutionary Algorithms.
+        </p>
+      </div>
+
+      <div class="bs-callout bs-callout-danger">
+        <h4>Prior Experiences</h4>
+        <ul class="list-group">
+          <a class="list-group-item inactive-link" href="#">
+            <h4 class="list-group-item-heading">
+              Software Engineer at Twitter
+            </h4>
+            <p class="list-group-item-text">
+              Lorem ipsum dolor sit amet, ea vel prima adhuc, scripta liberavisse ea quo, te vel vidit mollis complectitur. Quis verear mel ne. Munere vituperata vis cu, 
+         te pri duis timeam scaevola, nam postea diceret ne. Cum ex quod aliquip mediocritatem, mei habemus persecuti mediocritatem ei.
+            </p>
+          </a>
+          <a class="list-group-item inactive-link" href="#">
+            <h4 class="list-group-item-heading">Software Engineer at LinkedIn</h4>
+            <p class="list-group-item-text">
+              Lorem ipsum dolor sit amet, ea vel prima adhuc, scripta liberavisse ea quo, te vel vidit mollis complectitur. 
+              Quis verear mel ne. Munere vituperata vis cu, te pri duis timeam scaevola, 
+              nam postea diceret ne. Cum ex quod aliquip mediocritatem, mei habemus persecuti mediocritatem ei.
+                </p><ul>
+                  <li>
+                 Lorem ipsum dolor sit amet, ea vel prima adhuc, scripta liberavisse ea quo, te vel vidit mollis complectitur. 
+              Quis verear mel ne. Munere vituperata vis cu, te pri duis timeam scaevola, 
+              nam postea diceret ne. Cum ex quod aliquip mediocritatem, mei habemus persecuti mediocritatem ei.
+                  </li>
+                  <li>
+                 Lorem ipsum dolor sit amet, ea vel prima adhuc, scripta liberavisse ea quo, te vel vidit mollis complectitur. 
+              Quis verear mel ne. Munere vituperata vis cu, te pri duis timeam scaevola, 
+              nam postea diceret ne. Cum ex quod aliquip mediocritatem, mei habemus persecuti mediocritatem ei.
+                  </li>
+                </ul>
+            <p></p>
+          </a>
+        </ul>
+      </div>
+      <div class="bs-callout bs-callout-danger">
+        <h4>Key Expertise</h4>
+        <ul class="list-group">
+          <li class="list-group-item"> Lorem ipsum dolor sit amet, ea vel prima adhuc </li>
+          <li class="list-group-item"> Lorem ipsum dolor sit amet, ea vel prima adhuc</li>
+          <li class="list-group-item"> Lorem ipsum dolor sit amet, ea vel prima adhuc</li>
+          <li class="list-group-item"> Lorem ipsum dolor sit amet, ea vel prima adhuc</li>
+          <li class="list-group-item">Lorem ipsum dolor sit amet, ea vel prima adhuc</li>
+          <li class="list-group-item"> Lorem ipsum dolor sit amet, ea vel prima adhuc</li>
+
+
+
+        </ul>
+      </div>
+      
+
+  </div>
+</div>
+    
+</div>
+
+</div>
+{% endblock %}
