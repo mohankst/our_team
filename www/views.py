@@ -10,6 +10,16 @@ from django.db.models import Q
 # Create your views here.
 def index(request):
     people = Person.objects.all()
+
+    #for the search feature
+    query = request.GET.get("q")
+    if query:
+    	people = people.filter(
+    		Q(name__icontains=query) |
+    		Q(extentaion=query) |
+    		Q(email=query) |
+    		Q(title__icontains=query)
+    		).distinct()
     return render(request, 'index.html', {'people':people})
 
 def detail(request, slug):
