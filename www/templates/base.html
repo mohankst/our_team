@@ -32,7 +32,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="{% url 'index' %}">Members <span class="sr-only">(current)</span></a></li>
+
+              {% with request.resolver_match.url_name as url_name %}
+                <li class=""{% if url_name == 'index' %}active{% endif %}""><a href="{% url 'index' %}">Members<span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Link</a></li>
               </ul>
               <form class="navbar-form navbar-left">
@@ -51,6 +53,8 @@
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Log out</a></li>
                   </ul>
+                {% endwith %} 
+                
                 </li>
               </ul>
             </div><!-- /.navbar-collapse -->
@@ -58,7 +62,7 @@
         </nav>
         <!--Navigation Bar end -->
 
-    {% block content %}
-    {% endblock %}
+        {% block content %}
+        {% endblock %}
     </body>
 </html>

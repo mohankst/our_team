@@ -5,6 +5,7 @@
   text-align: center;    
 }
 
+body { padding-top: 70px; }
 /*social buttons*/
 .btn-social{
   color: white;
